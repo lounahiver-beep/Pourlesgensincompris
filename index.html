@@ -1,95 +1,116 @@
 <!doctype html>
 <html lang="fr">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Je suis là 🤍</title>
 <style>
-*{box-sizing:border-box}body{margin:0;background:linear-gradient(135deg,#f7f5f1,#e8edf3);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#252525}.app{max-width:900px;margin:auto;padding:18px}.nav{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:25px}.logo{font-weight:750}.nav button,.back{border:0;background:transparent;padding:10px 12px;border-radius:12px;color:#555;cursor:pointer}.nav button:hover,.back:hover{background:#ffffffaa}.links{display:flex;gap:4px;flex-wrap:wrap}.screen{display:none;animation:fade .3s}.screen.active{display:block}@keyframes fade{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:none}}.hero,.panel{background:#ffffffdd;backdrop-filter:blur(12px);border-radius:28px;padding:32px;box-shadow:0 16px 45px #0000000d}.hero{text-align:center;padding:55px 28px}.eyebrow{text-transform:uppercase;letter-spacing:2px;font-size:12px;color:#777;margin-bottom:12px}h1{font-size:clamp(40px,8vw,70px);line-height:1.02;margin:0 0 18px}h2{font-size:32px;margin:10px 0}.lead,.sub{color:#707070;line-height:1.65}.lead{max-width:650px;margin:0 auto 28px}.grid,.choices{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:24px}.choice,.mini{background:#fff;border:0;border-radius:20px;padding:22px;text-align:left;cursor:pointer;box-shadow:0 8px 24px #00000008}.choice:hover,.mini:hover{transform:translateY(-2px)}.choice strong,.mini b{display:block;margin-bottom:6px}.choice span,.mini small{color:#777}.icon{font-size:29px;margin-bottom:9px}.textarea{width:100%;min-height:170px;border:1px solid #ddd;border-radius:17px;padding:16px;background:#fafafa;font-size:16px;resize:vertical;outline:none}.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:12px}.btn{border:0;border-radius:14px;background:#252525;color:#fff;padding:13px 18px;cursor:pointer}.btn.light{background:#eee;color:#222}.status{font-size:13px;margin-top:12px;line-height:1.5}.ok{color:#41684c}.error{color:#9b4141}.chat{background:#f3f3f0;border-radius:20px;padding:15px;margin:18px 0}.bubble{background:#fff;border-radius:17px;padding:12px 14px;margin:7px 0;max-width:85%}.tag{display:inline-block;background:#eee;border-radius:999px;padding:6px 10px;font-size:12px}.letter{white-space:pre-line;line-height:1.9}.response{display:none;margin-top:18px}.response.show{display:block}@media(max-width:650px){.grid,.choices{grid-template-columns:1fr}.hero{padding:40px 20px}.app{padding:12px}.nav button{font-size:12px}}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:linear-gradient(145deg,#f8f5f1,#edf1f5);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#252525}.app{max-width:850px;margin:auto;padding:16px}.top{text-align:center;padding:35px 10px 18px}.logo{font-weight:800;font-size:15px;letter-spacing:.5px}.hero{background:#fff;border-radius:30px;padding:34px 24px;box-shadow:0 16px 45px #00000010;text-align:center}.eyebrow{text-transform:uppercase;letter-spacing:2px;font-size:11px;color:#888;margin-bottom:10px}h1{font-size:clamp(42px,10vw,68px);line-height:1;margin:0 0 16px}h2{font-size:28px;margin:0 0 10px}.lead{font-size:17px;line-height:1.65;color:#666;margin:0 auto 25px;max-width:650px}.love{font-weight:700;color:#333}.writebox{text-align:left;background:#f7f6f3;border-radius:22px;padding:18px;margin-top:22px}.writebox label{display:block;font-weight:750;margin-bottom:9px}.hint{font-size:13px;color:#777;margin-bottom:12px}.textarea{display:block;width:100%;min-height:180px;border:1px solid #d5d5d5;border-radius:17px;background:#fff;padding:16px;font:inherit;font-size:16px;line-height:1.55;resize:vertical;outline:none}.textarea:focus{border-color:#777;box-shadow:0 0 0 3px #00000008}.counter{text-align:right;color:#888;font-size:12px;margin:6px 2px}.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:10px}.btn{border:0;border-radius:14px;background:#252525;color:#fff;padding:13px 18px;font:inherit;font-weight:700;cursor:pointer}.btn.light{background:#e9e9e7;color:#222}.status{min-height:20px;font-size:13px;margin-top:10px;line-height:1.5}.ok{color:#386247}.error{color:#9a3f3f}.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:24px}.choice{border:1px solid #eee;background:#fff;border-radius:19px;padding:18px;text-align:left;cursor:pointer;min-height:105px;box-shadow:0 7px 22px #00000008}.choice:hover{transform:translateY(-1px)}.choice .icon{font-size:27px;margin-bottom:7px}.choice strong{display:block;margin-bottom:5px}.choice span{font-size:13px;color:#777;line-height:1.45}.answer{display:none;margin-top:15px;padding:15px;background:#f1f1ee;border-radius:16px;text-align:left;line-height:1.55}.answer.show{display:block}.section{margin-top:14px;background:#fff;border-radius:25px;padding:25px;box-shadow:0 12px 35px #00000008}.letter{white-space:pre-line;line-height:1.85;color:#555}.footer{text-align:center;color:#888;font-size:12px;padding:28px 0}.pill{display:inline-block;background:#eee;border-radius:999px;padding:5px 9px;font-size:12px;margin-bottom:7px}@media(max-width:600px){.grid{grid-template-columns:1fr}.hero{padding:28px 17px}.top{padding-top:22px}}
 </style>
 </head>
 <body>
 <div class="app">
-<div class="nav"><div class="logo">Je suis là. 🤍</div><div class="links">
-<button onclick="show('home')">Accueil</button><button onclick="show('talk')">Parler</button><button onclick="show('feelings')">Émotions</button><button onclick="show('letter')">Pour toi</button>
-</div></div>
+  <div class="top"><div class="logo">Je suis là. 🤍</div></div>
 
-<section id="home" class="screen active"><div class="hero">
-<div class="eyebrow">Un espace rien qu'à toi</div><h1>Tu peux déposer<br>ce que tu ressens.</h1>
-<p class="lead">Tu n'as pas besoin de faire semblant ici. Choisis ce dont tu as besoin et prends ton temps.</p>
-<div class="grid">
-<button class="choice" onclick="show('talk')"><div class="icon">🫂</div><strong>J'ai besoin de parler</strong><span>Écris-moi ce que tu n'arrives pas à dire.</span></button>
-<button class="choice" onclick="show('feelings')"><div class="icon">💭</div><strong>Je ne sais pas ce que je ressens</strong><span>Commencer par une émotion.</span></button>
-<button class="choice" onclick="show('apology')"><div class="icon">🕊️</div><strong>J'ai quelque chose à dire</strong><span>Désolé, explication, besoin de toi...</span></button>
-<button class="choice" onclick="show('letter')"><div class="icon">❤️</div><strong>J'ai besoin de me rappeler</strong><span>Pourquoi je compte pour quelqu'un.</span></button>
-</div></div></section>
+  <main class="hero">
+    <div class="eyebrow">Un espace rien qu'à toi</div>
+    <h1>Je t'écoute.</h1>
+    <p class="lead"><strong>Désolée, Isma. 🤍</strong><br>Je t'aime, je t'écoute et je veux comprendre ce que tu ressens.<br>Tu n'as pas besoin de trouver les mots parfaits. <span class="love">Dis-moi simplement ce que tu as sur le cœur.</span></p>
 
-<section id="talk" class="screen"><div class="panel"><button class="back" onclick="show('home')">← Retour</button>
-<div class="eyebrow">Parle-moi</div><h2>Qu'est-ce que tu voudrais me dire ?</h2><p class="sub">Écris comme ça vient. Tu n'as pas besoin de trouver les bons mots.</p>
-<div class="chat"><div class="bubble">Je suis là. Prends ton temps. 🤍</div></div>
-<form onsubmit="send(event,'message')"><textarea id="message" class="textarea" maxlength="5000" placeholder="Écris ici..."></textarea>
-<div class="actions"><button class="btn" type="submit">Envoyer à Sara 🤍</button><button class="btn light" type="button" onclick="document.getElementById('message').value='Je ne sais pas comment commencer...'">Je ne sais pas comment commencer</button></div>
-<div id="messageStatus" class="status"></div></form>
-</div></section>
+    <div class="writebox" id="write">
+      <label for="message">💬 Écris-moi directement ici</label>
+      <div class="hint">Tu peux écrire absolument ce que tu veux : ce qui te rend triste, énervé, perdu, ce que tu voudrais que je comprenne…</div>
+      <textarea id="message" class="textarea" maxlength="5000" placeholder="Écris ce que tu ressens… Je suis là et je t'écoute. 🤍"></textarea>
+      <div class="counter"><span id="count">0</span>/5000</div>
+      <div class="actions">
+        <button class="btn" id="sendBtn" type="button">Envoyer à Sara 🤍</button>
+        <button class="btn light" id="startBtn" type="button">Je ne sais pas comment commencer</button>
+      </div>
+      <div id="status" class="status"></div>
+    </div>
 
-<section id="apology" class="screen"><div class="panel"><button class="back" onclick="show('home')">← Retour</button>
-<div class="eyebrow">Les mots qu'on n'arrive pas toujours à dire</div><h2>Choisis une phrase pour commencer.</h2>
-<div class="choices">
-<button class="mini" onclick="preset('Désolé si je t’ai blessée. Je ne voulais pas que mes mots ou mes actes te fassent du mal.')">🕊️ <b>Désolé</b><small>Reconnaître ce qui s'est passé.</small></button>
-<button class="mini" onclick="preset('J’ai besoin de t’expliquer ce que je ressens, même si je ne trouve pas les bons mots.')">💬 <b>Je veux expliquer</b><small>Mettre mes émotions en mots.</small></button>
-<button class="mini" onclick="preset('Je me sens incompris et j’aimerais que tu essaies de comprendre ce qui se passe dans ma tête.')">🫥 <b>Je me sens incompris</b><small>Dire ce qui me manque.</small></button>
-<button class="mini" onclick="preset('Je ne vais pas très bien en ce moment et j’aurais simplement besoin que tu sois là.')">🌧️ <b>J’ai besoin de toi</b><small>Demander une présence.</small></button>
-</div>
-<div id="presetBox" class="response"><textarea id="presetText" class="textarea"></textarea><div class="actions"><button class="btn" onclick="send(null,'preset')">Envoyer à Sara 🤍</button><button class="btn light" onclick="show('talk')">Continuer à écrire</button></div><div id="presetStatus" class="status"></div></div>
-</div></section>
+    <div class="grid">
+      <button class="choice" type="button" data-fill="En ce moment, je me sens…"><div class="icon">🫂</div><strong>Je veux te parler</strong><span>Écris ce que tu n'arrives pas à dire à voix haute.</span></button>
+      <button class="choice" type="button" data-emotion="incompris"><div class="icon">💭</div><strong>Je me sens incompris</strong><span>Mettons des mots sur ce qui se passe.</span></button>
+      <button class="choice" type="button" data-fill="J’ai quelque chose à t’expliquer…"><div class="icon">💬</div><strong>J'ai quelque chose à te dire</strong><span>Commence avec une phrase, même imparfaite.</span></button>
+      <button class="choice" type="button" data-fill="J’ai besoin de toi parce que…"><div class="icon">🤍</div><strong>J'ai besoin de toi</strong><span>Dis-moi simplement de quoi tu as besoin.</span></button>
+    </div>
 
-<section id="feelings" class="screen"><div class="panel"><button class="back" onclick="show('home')">← Retour</button>
-<div class="eyebrow">Sans jugement</div><h2>Qu'est-ce qui ressemble à ce que tu ressens ?</h2>
-<div class="choices">
-<button class="mini" onclick="emotion('Seul','La solitude peut faire beaucoup de bruit. Tu n’as pas besoin de la cacher.')">🥀 <b>Seul</b><small>J'aurais besoin de présence.</small></button>
-<button class="mini" onclick="emotion('Incompris','Ne pas réussir à expliquer ce que tu ressens ne rend pas ton ressenti moins réel.')">🫥 <b>Incompris</b><small>J'aimerais qu'on me comprenne.</small></button>
-<button class="mini" onclick="emotion('Triste','Tu n’as pas besoin de régler ta tristesse immédiatement.')">🌧️ <b>Triste</b><small>J'ai besoin d'être écouté.</small></button>
-<button class="mini" onclick="emotion('Énervé','Tu peux d'abord dire ce qui t’a mis en colère.')">🌋 <b>Énervé</b><small>J'ai beaucoup de choses en moi.</small></button>
-<button class="mini" onclick="emotion('Perdu','Tu n’as pas besoin de connaître toute la suite maintenant.')">🧭 <b>Perdu</b><small>Je ne sais plus quoi penser.</small></button>
-<button class="mini" onclick="emotion('Fatigué','Tu as le droit de ralentir.')">🌙 <b>Fatigué</b><small>J'ai besoin de souffler.</small></button>
-</div><div id="emotionResponse" class="response"></div></div></section>
+    <div id="answer" class="answer"></div>
+  </main>
 
-<section id="letter" class="screen"><div class="panel"><button class="back" onclick="show('home')">← Retour</button><div class="eyebrow" style="margin-top:22px">Une lettre pour toi</div>
-<h2>Tu n'as pas besoin d'être compris par tout le monde.</h2><p class="letter">Je ne pourrai peut-être jamais ressentir exactement ce que tu ressens.
+  <section class="section">
+    <div class="eyebrow">Une petite lettre</div>
+    <h2>Tu n'as pas besoin d'être compris par tout le monde.</h2>
+    <p class="letter">Je ne pourrai peut-être jamais ressentir exactement ce que tu ressens.
 
 Mais je peux t'écouter.
 Je peux essayer de comprendre.
 Je peux rester quand tu n'as pas les mots.
 
-Tu n'as pas besoin d'être fort tout le temps.
-Tu as le droit d'être perdu, fatigué, triste, énervé ou silencieux.
+Désolée si parfois je ne comprends pas tout de suite.
+Je t'aime, Isma.
 
-Quand tu as l'impression que personne ne te comprend, reviens ici.
+Si tu veux me parler, parle-moi. Même si c'est compliqué, même si c'est confus, même si tu ne sais pas par où commencer.
 
-Quelqu'un pense à toi.
-Quelqu'un tient à toi.
-Et quelqu'un est là. 🤍</p></div></section>
+Je suis là. 🤍</p>
+  </section>
+
+  <div class="footer">Fait avec beaucoup de douceur, pour toi. 🤍</div>
 </div>
 
+<iframe name="mailFrame" style="display:none"></iframe>
+<form id="hiddenMailForm" method="POST" target="mailFrame" style="display:none">
+  <input name="message" id="hiddenMessage">
+  <input name="type" id="hiddenType">
+</form>
+
 <script>
-/* Colle ici l'URL de ton Google Apps Script après l'étape du README. */
-const ENDPOINT="COLLE_ICI_TON_URL_APPS_SCRIPT";
-function show(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');scrollTo({top:0,behavior:'smooth'})}
-function preset(t){document.getElementById('presetText').value=t;document.getElementById('presetBox').classList.add('show');document.getElementById('presetText').focus()}
-function emotion(name,text){const r=document.getElementById('emotionResponse');r.innerHTML='<span class="tag">'+name+'</span><p>'+text+'</p><p>Tu peux maintenant me raconter ce qu’il y a derrière cette émotion.</p><button class="btn" onclick="show(\\'talk\\')">Me l’écrire 🤍</button>';r.classList.add('show')}
-async function send(ev,type){
- if(ev)ev.preventDefault();
- const text=(type==='message'?document.getElementById('message').value:document.getElementById('presetText').value).trim();
- const status=document.getElementById(type==='message'?'messageStatus':'presetStatus');
- if(!text){status.textContent='Écris quelque chose avant d’envoyer.';status.className='status error';return}
- if(ENDPOINT.includes('COLLE_ICI')){status.textContent='Le site est prêt, mais il faut encore connecter l’adresse d’envoi. Suis le README fourni avec le site.';status.className='status error';return}
- status.textContent='Envoi…';status.className='status';
- try{
-  const res=await fetch(ENDPOINT,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify({message:text,source:'Je suis là',type:type})});
-  if(!res.ok)throw new Error('send');
-  status.textContent='C’est envoyé à Sara. 🤍';status.className='status ok';
-  if(type==='message')document.getElementById('message').value='';
- }catch(e){status.textContent='L’envoi n’a pas fonctionné. Vérifie la connexion au service d’e-mail.';status.className='status error'}
+const ENDPOINT = "COLLE_ICI_TON_URL_APPS_SCRIPT";
+const message = document.getElementById("message");
+const count = document.getElementById("count");
+const status = document.getElementById("status");
+const answer = document.getElementById("answer");
+
+function updateCount(){ count.textContent = message.value.length; }
+function focusBox(){ document.getElementById("write").scrollIntoView({behavior:"smooth",block:"center"}); setTimeout(()=>message.focus(),350); }
+function setText(text, replace=true){
+  if(replace || !message.value.trim()) message.value=text;
+  else message.value += "\n" + text;
+  updateCount(); focusBox();
 }
+
+document.getElementById("startBtn").addEventListener("click",()=>setText("En ce moment, je me sens…"));
+document.querySelectorAll("[data-fill]").forEach(btn=>btn.addEventListener("click",()=>setText(btn.dataset.fill)));
+
+document.querySelector('[data-emotion="incompris"]').addEventListener("click",()=>{
+  answer.innerHTML = '<span class="pill">🫥 Incompris</span><br>Ne pas réussir à expliquer ce que tu ressens ne rend pas ton ressenti moins réel. Tu peux me raconter ce qui te fait te sentir incompris, même avec des phrases courtes.';
+  answer.classList.add("show");
+  focusBox();
+});
+
+message.addEventListener("input",updateCount);
+
+document.getElementById("sendBtn").addEventListener("click",()=>{
+  const text = message.value.trim();
+  if(!text){ status.textContent="Écris d'abord ton message 🤍"; status.className="status error"; focusBox(); return; }
+  if(ENDPOINT.includes("COLLE_ICI")){
+    localStorage.setItem("isma_message", message.value);
+    status.textContent="Ton message est bien écrit ici 🤍 Pour que Sara le reçoive vraiment par e-mail, il faut encore connecter l'URL Google Apps Script dans le code.";
+    status.className="status error";
+    return;
+  }
+  document.getElementById("hiddenMailForm").action=ENDPOINT;
+  document.getElementById("hiddenMessage").value=text;
+  document.getElementById("hiddenType").value="message depuis l'accueil";
+  document.getElementById("hiddenMailForm").submit();
+  status.textContent="Message envoyé à Sara. 🤍";
+  status.className="status ok";
+  localStorage.setItem("isma_message", message.value);
+});
+
+const saved=localStorage.getItem("isma_message");
+if(saved){message.value=saved;updateCount();}
 </script>
 </body>
 </html>
