@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Je suis là 🤍</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(135deg,#f7f5f1,#e8edf3);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#252525}.app{max-width:900px;margin:auto;padding:18px}.nav{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:25px}.logo{font-weight:750}.nav button,.back{border:0;background:transparent;padding:10px 12px;border-radius:12px;color:#555;cursor:pointer}.nav button:hover,.back:hover{background:#ffffffaa}.links{display:flex;gap:4px;flex-wrap:wrap}.screen{display:none;animation:fade .3s}.screen.active{display:block}@keyframes fade{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:none}}.hero,.panel{background:#ffffffdd;backdrop-filter:blur(12px);border-radius:28px;padding:32px;box-shadow:0 16px 45px #0000000d}.hero{text-align:center;padding:55px 28px}.eyebrow{text-transform:uppercase;letter-spacing:2px;font-size:12px;color:#777;margin-bottom:12px}h1{font-size:clamp(40px,8vw,70px);line-height:1.02;margin:0 0 18px}h2{font-size:32px;margin:10px 0}.lead,.sub{color:#707070;line-height:1.65}.lead{max-width:650px;margin:0 auto 28px}.grid,.choices{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:24px}.choice,.mini{background:#fff;border:0;border-radius:20px;padding:22px;text-align:left;cursor:pointer;box-shadow:0 8px 24px #00000008}.choice:hover,.mini:hover{transform:translateY(-2px)}.choice strong,.mini b{display:block;margin-bottom:6px}.choice span,.mini small{color:#777}.icon{font-size:29px;margin-bottom:9px}.textarea{width:100%;min-height:170px;border:1px solid #ddd;border-radius:17px;padding:16px;background:#fafafa;font-size:16px;resize:vertical;outline:none}.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:12px}.btn{border:0;border-radius:14px;background:#252525;color:#fff;padding:13px 18px;cursor:pointer}.btn.light{background:#eee;color:#222}.status{font-size:13px;margin-top:12px;line-height:1.5}.ok{color:#41684c}.error{color:#9b4141}.chat{background:#f3f3f0;border-radius:20px;padding:15px;margin:18px 0}.bubble{background:#fff;border-radius:17px;padding:12px 14px;margin:7px 0;max-width:85%}.tag{display:inline-block;background:#eee;border-radius:999px;padding:6px 10px;font-size:12px}.letter{white-space:pre-line;line-height:1.9}.response{display:none;margin-top:18px}.response.show{display:block}@media(max-width:650px){.grid,.choices{grid-template-columns:1fr}.hero{padding:40px 20px}.app{padding:12px}.nav button{font-size:12px}}
+</style>
+</head>
+<body>
+<div class="app">
+<div class="nav"><div class="logo">Je suis là. 🤍</div><div class="links">
+<button onclick="show('home')">Accueil</button><button onclick="show('talk')">Parler</button><button onclick="show('feelings')">Émotions</button><button onclick="show('letter')">Pour toi</button>
+</div></div>
+
+<section id="home" class="screen active"><div class="hero">
+<div class="eyebrow">Un espace rien qu'à toi</div><h1>Tu peux déposer<br>ce que tu ressens.</h1>
+<p class="lead">Tu n'as pas besoin de faire semblant ici. Choisis ce dont tu as besoin et prends ton temps.</p>
+<div class="grid">
+<button class="choice" onclick="show('talk')"><div class="icon">🫂</div><strong>J'ai besoin de parler</strong><span>Écris-moi ce que tu n'arrives pas à dire.</span></button>
+<button class="choice" onclick="show('feelings')"><div class="icon">💭</div><strong>Je ne sais pas ce que je ressens</strong><span>Commencer par une émotion.</span></button>
+<button class="choice" onclick="show('apology')"><div class="icon">🕊️</div><strong>J'ai quelque chose à dire</strong><span>Désolé, explication, besoin de toi...</span></button>
+<button class="choice" onclick="show('letter')"><div class="icon">❤️</div><strong>J'ai besoin de me rappeler</strong><span>Pourquoi je compte pour quelqu'un.</span></button>
+</div></div></section>
+
+<section id="talk" class="screen"><div class="panel"><button class="back" onclick="show('home')">← Retour</button>
+<div class="eyebrow">Parle-moi</div><h2>Qu'est-ce que tu voudrais me dire ?</h2><p class="sub">Écris comme ça vient. Tu n'as pas besoin de trouver les bons mots.</p>
+<div class="chat"><div class="bubble">Je suis là. Prends ton temps. 🤍</div></div>
+<form onsubmit="send(event,'message')"><textarea id="message" class="textarea" maxlength="5000" placeholder="Écris ici..."></textarea>
+<div class="actions"><button class="btn" type="submit">Envoyer à Sara 🤍</button><button class="btn light" type="button" onclick="document.getElementById('message').value='Je ne sais pas comment commencer...'">Je ne sais pas comment commencer</button></div>
+<div id="messageStatus" class="status"></div></form>
+</div></section>
+
+<section id="apology" class="screen"><div class="panel"><button class="back" onclick="show('home')">← Retour</button>
+<div class="eyebrow">Les mots qu'on n'arrive pas toujours à dire</div><h2>Choisis une phrase pour commencer.</h2>
+<div class="choices">
+<button class="mini" onclick="preset('Désolé si je t’ai blessée. Je ne voulais pas que mes mots ou mes actes te fassent du mal.')">🕊️ <b>Désolé</b><small>Reconnaître ce qui s'est passé.</small></button>
+<button class="mini" onclick="preset('J’ai besoin de t’expliquer ce que je ressens, même si je ne trouve pas les bons mots.')">💬 <b>Je veux expliquer</b><small>Mettre mes émotions en mots.</small></button>
+<button class="mini" onclick="preset('Je me sens incompris et j’aimerais que tu essaies de comprendre ce qui se passe dans ma tête.')">🫥 <b>Je me sens incompris</b><small>Dire ce qui me manque.</small></button>
+<button class="mini" onclick="preset('Je ne vais pas très bien en ce moment et j’aurais simplement besoin que tu sois là.')">🌧️ <b>J’ai besoin de toi</b><small>Demander une présence.</small></button>
+</div>
+<div id="presetBox" class="response"><textarea id="presetText" class="textarea"></textarea><div class="actions"><button class="btn" onclick="send(null,'preset')">Envoyer à Sara 🤍</button><button class="btn light" onclick="show('talk')">Continuer à écrire</button></div><div id="presetStatus" class="status"></div></div>
+</div></section>
+
+<section id="feelings" class="screen"><div class="panel"><button class="back" onclick="show('home')">← Retour</button>
+<div class="eyebrow">Sans jugement</div><h2>Qu'est-ce qui ressemble à ce que tu ressens ?</h2>
+<div class="choices">
+<button class="mini" onclick="emotion('Seul','La solitude peut faire beaucoup de bruit. Tu n’as pas besoin de la cacher.')">🥀 <b>Seul</b><small>J'aurais besoin de présence.</small></button>
+<button class="mini" onclick="emotion('Incompris','Ne pas réussir à expliquer ce que tu ressens ne rend pas ton ressenti moins réel.')">🫥 <b>Incompris</b><small>J'aimerais qu'on me comprenne.</small></button>
+<button class="mini" onclick="emotion('Triste','Tu n’as pas besoin de régler ta tristesse immédiatement.')">🌧️ <b>Triste</b><small>J'ai besoin d'être écouté.</small></button>
+<button class="mini" onclick="emotion('Énervé','Tu peux d'abord dire ce qui t’a mis en colère.')">🌋 <b>Énervé</b><small>J'ai beaucoup de choses en moi.</small></button>
+<button class="mini" onclick="emotion('Perdu','Tu n’as pas besoin de connaître toute la suite maintenant.')">🧭 <b>Perdu</b><small>Je ne sais plus quoi penser.</small></button>
+<button class="mini" onclick="emotion('Fatigué','Tu as le droit de ralentir.')">🌙 <b>Fatigué</b><small>J'ai besoin de souffler.</small></button>
+</div><div id="emotionResponse" class="response"></div></div></section>
+
+<section id="letter" class="screen"><div class="panel"><button class="back" onclick="show('home')">← Retour</button><div class="eyebrow" style="margin-top:22px">Une lettre pour toi</div>
+<h2>Tu n'as pas besoin d'être compris par tout le monde.</h2><p class="letter">Je ne pourrai peut-être jamais ressentir exactement ce que tu ressens.
+
+Mais je peux t'écouter.
+Je peux essayer de comprendre.
+Je peux rester quand tu n'as pas les mots.
+
+Tu n'as pas besoin d'être fort tout le temps.
+Tu as le droit d'être perdu, fatigué, triste, énervé ou silencieux.
+
+Quand tu as l'impression que personne ne te comprend, reviens ici.
+
+Quelqu'un pense à toi.
+Quelqu'un tient à toi.
+Et quelqu'un est là. 🤍</p></div></section>
+</div>
+
+<script>
+/* Colle ici l'URL de ton Google Apps Script après l'étape du README. */
+const ENDPOINT="COLLE_ICI_TON_URL_APPS_SCRIPT";
+function show(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');scrollTo({top:0,behavior:'smooth'})}
+function preset(t){document.getElementById('presetText').value=t;document.getElementById('presetBox').classList.add('show');document.getElementById('presetText').focus()}
+function emotion(name,text){const r=document.getElementById('emotionResponse');r.innerHTML='<span class="tag">'+name+'</span><p>'+text+'</p><p>Tu peux maintenant me raconter ce qu’il y a derrière cette émotion.</p><button class="btn" onclick="show(\\'talk\\')">Me l’écrire 🤍</button>';r.classList.add('show')}
+async function send(ev,type){
+ if(ev)ev.preventDefault();
+ const text=(type==='message'?document.getElementById('message').value:document.getElementById('presetText').value).trim();
+ const status=document.getElementById(type==='message'?'messageStatus':'presetStatus');
+ if(!text){status.textContent='Écris quelque chose avant d’envoyer.';status.className='status error';return}
+ if(ENDPOINT.includes('COLLE_ICI')){status.textContent='Le site est prêt, mais il faut encore connecter l’adresse d’envoi. Suis le README fourni avec le site.';status.className='status error';return}
+ status.textContent='Envoi…';status.className='status';
+ try{
+  const res=await fetch(ENDPOINT,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify({message:text,source:'Je suis là',type:type})});
+  if(!res.ok)throw new Error('send');
+  status.textContent='C’est envoyé à Sara. 🤍';status.className='status ok';
+  if(type==='message')document.getElementById('message').value='';
+ }catch(e){status.textContent='L’envoi n’a pas fonctionné. Vérifie la connexion au service d’e-mail.';status.className='status error'}
+}
+</script>
+</body>
+</html>
